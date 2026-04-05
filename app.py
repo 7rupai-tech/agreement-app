@@ -15,9 +15,6 @@ st.set_page_config(page_title="Agreement System", layout="wide")
 
 st.title("📄 Client Agreement System")
 
-# INPUT
-
-    }
 # INPUTS
 name = st.text_input("Client Name")
 amount = st.text_input("Amount (₹)")
