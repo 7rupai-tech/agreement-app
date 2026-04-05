@@ -20,7 +20,7 @@ name = st.text_input("Client Name")
 amount = st.text_input("Amount (₹)")
 date = st.date_input("Investment Date")
 
-if st.button("Generate Agreement"):
+if generate:
 
 data = {
     "NAME": name,
