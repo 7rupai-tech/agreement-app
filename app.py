@@ -22,11 +22,21 @@ date = st.date_input("Investment Date")
 
 if st.button("Generate Agreement"):
 
-    data = {
-        "NAME": name,
-        "AMOUNT": amount,
-        "INVESTMENT_DATE": date.strftime("%d/%m/%Y")
-    }
+data = {
+    "NAME": name,
+    "AMOUNT": amount,
+    "INVESTMENT_DATE": date.strftime("%d/%m/%Y"),
+
+    "LENDER_NAME": lender,
+    "BANK": bank,
+    "MODE": mode,
+    "TRANSACTION_ID": txn,
+    "EMAIL": email,
+    "PHONE": phone,
+    "NOMINEE": nominee,
+    "RELATION": relation,
+    "PROCESSING_FEES": fees
+}
 
     data = process_data(data)
 
@@ -60,3 +70,12 @@ try:
             st.write(f"👤 {client['NAME']} | ₹{client['AMOUNT']} | {client['START_DATE']} → {client['END_DATE']}")
 except:
     st.info("No clients yet")
+    lender = st.text_input("Lender Name")
+bank = st.text_input("Bank Account")
+mode = st.text_input("Payment Mode (UPI/Bank)")
+txn = st.text_input("Transaction ID")
+email = st.text_input("Email")
+phone = st.text_input("Phone Number")
+nominee = st.text_input("Nominee Name")
+relation = st.text_input("Relation with Nominee")
+fees = st.text_input("Processing Fees (₹)")
