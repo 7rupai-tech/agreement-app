@@ -22,26 +22,35 @@ date = st.date_input("Investment Date")
 
 if generate:
 
-data = {
-    "NAME": name,
-    "AMOUNT": amount,
-    "INVESTMENT_DATE": date.strftime("%d/%m/%Y"),
+    data = {
+        "NAME": name,
+        "AMOUNT": amount,
+        "INVESTMENT_DATE": date.strftime("%d/%m/%Y"),
 
-    "LENDER_NAME": lender,
-    "BANK": bank,
-    "MODE": mode,
-    "TRANSACTION_ID": txn,
-    "EMAIL": email,
-    "PHONE": phone,
-    "NOMINEE": nominee,
-    "RELATION": relation,
-    "PROCESSING_FEES": fees
-}
+        "LENDER_NAME": lender,
+        "BANK": bank,
+        "MODE": mode,
+        "TRANSACTION_ID": txn,
+        "EMAIL": email,
+        "PHONE": phone,
+        "NOMINEE": nominee,
+        "RELATION": relation,
+        "PROCESSING_FEES": fees
+    }
 
     data = process_data(data)
 
     doc_file = generate_doc(data)
     pdf_file = generate_pdf(data)
+
+    with open("database.json", "a") as f:
+        import json
+        f.write(json.dumps(data) + "\n")
+
+    st.success("✅ Agreement Created")
+
+    st.download_button("📄 Download DOCX", open(doc_file, "rb"), doc_file)
+    st.download_button("📄 Download PDF", open(pdf_file, "rb"), pdf_file)
 
     # Save data
     with open("database.json", "a") as f:
