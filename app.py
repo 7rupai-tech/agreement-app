@@ -15,21 +15,6 @@ st.set_page_config(page_title="Agreement System", layout="wide")
 
 st.title("📄 Client Agreement System")
 
-# INPUTS
-name = st.text_input("Client Name")
-amount = st.text_input("Amount (₹)")
-date = st.date_input("Investment Date")
-
-lender = st.text_input("Lender Name")
-bank = st.text_input("Bank Account")
-mode = st.text_input("Payment Mode")
-txn = st.text_input("Transaction ID")
-email = st.text_input("Email")
-phone = st.text_input("Phone Number")
-nominee = st.text_input("Nominee Name")
-relation = st.text_input("Relation")
-fees = st.text_input("Processing Fees")
-
 # BUTTON
 generate = st.button("🚀 Generate Agreement")
 
