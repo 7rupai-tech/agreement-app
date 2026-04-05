@@ -24,19 +24,15 @@ generate = st.button("🚀 Generate Agreement")
 if generate:
 
     data = {
-        "NAME": name,
-        "AMOUNT": amount,
-        "INVESTMENT_DATE": date.strftime("%d/%m/%Y"),
-
-        "LENDER_NAME": lender,
-        "BANK": bank,
-        "MODE": mode,
-        "TRANSACTION_ID": txn,
-        "EMAIL": email,
-        "PHONE": phone,
-        "NOMINEE": nominee,
-        "RELATION": relation,
-        "PROCESSING_FEES": fees
+       lender = st.text_input("Lender Name")
+bank = st.text_input("Bank Account")
+mode = st.text_input("Payment Mode")
+txn = st.text_input("Transaction ID")
+email = st.text_input("Email")
+phone = st.text_input("Phone Number")
+nominee = st.text_input("Nominee Name")
+relation = st.text_input("Relation")
+fees = st.text_input("Processing Fees")
     }
 
     data = process_data(data)
