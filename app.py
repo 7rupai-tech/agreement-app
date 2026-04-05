@@ -18,6 +18,7 @@ st.title("📄 Client Agreement System")
 # INPUT
 
     }
+# INPUTS
 name = st.text_input("Client Name")
 amount = st.text_input("Amount (₹)")
 date = st.date_input("Investment Date")
@@ -32,8 +33,10 @@ nominee = st.text_input("Nominee Name")
 relation = st.text_input("Relation")
 fees = st.text_input("Processing Fees")
 
+# BUTTON
 generate = st.button("🚀 Generate Agreement")
 
+# LOGIC
 if generate:
 
     data = {
@@ -51,14 +54,11 @@ if generate:
         "RELATION": relation,
         "PROCESSING_FEES": fees
     }
+
     data = process_data(data)
 
     doc_file = generate_doc(data)
     pdf_file = generate_pdf(data)
-
-    with open("database.json", "a") as f:
-        import json
-        f.write(json.dumps(data) + "\n")
 
     st.success("✅ Agreement Created")
 
